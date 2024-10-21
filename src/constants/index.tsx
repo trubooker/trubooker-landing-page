@@ -9,6 +9,6 @@ export const NavLinks = [
   },
   {
     title: "FAQ",
-    path: "/management-system/#FAQ",
+    path: "",
   },
 ];
