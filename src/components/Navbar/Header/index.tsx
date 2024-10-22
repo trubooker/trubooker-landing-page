@@ -15,6 +15,7 @@ import Link from "next/link";
 import NavbarRoutes from "../Routes";
 import { NavLinks } from "@/constants";
 import Logo from "@/public/logo.svg";
+import LogoDriver from "@/publiclogoDrivers.svg";
 
 const MobileNavbar = () => {
   const pathname = usePathname();
@@ -23,13 +24,13 @@ const MobileNavbar = () => {
     <div className="flex items-center my-5 w-full">
       <div className="flex justify-between items-center w-full">
         <Image
-          src={Logo}
+          src={pathname === "/driver" ? LogoDriver : Logo}
           width="60"
           alt="Logo"
           className="lg:hidden flex w-32 h-10"
         />
         <Image
-          src={Logo}
+          src={pathname === "/driver" ? LogoDriver : Logo}
           width="100"
           alt="Logo"
           className="lg:flex hidden w-52 h-16"
@@ -45,9 +46,11 @@ const MobileNavbar = () => {
           ))}
           <Link
             className="hover:underline font-medium text-[--primary-orange]"
-            href={"/driver"}
+            href={pathname === "/driver" ? "/" : "/driver"}
           >
-            Drive with trubooker
+            {pathname === "/driver"
+              ? "Ride with trubooker"
+              : "Drive with trubooker"}
           </Link>
           <Button
             onClick={() => router.push("")}
@@ -74,7 +77,7 @@ const MobileNavbar = () => {
                   <div className="relative w-32 h-10 pb-2">
                     <Image
                       className="sm:mx-0 mt-1 rounded lg:hidden"
-                      src={"/logo.svg"}
+                      src={pathname === "/driver" ? LogoDriver : Logo}
                       fill
                       alt=""
                     />
@@ -103,11 +106,17 @@ const MobileNavbar = () => {
                           ))}
 
                           <Button
-                            onClick={() => router.push("/driver")}
+                            onClick={() =>
+                              router.push(
+                                pathname === "/driver" ? "/" : "/driver"
+                              )
+                            }
                             variant={"outline"}
                             className="w-full mb-[12px] py-5 text-[--primary-orange] hover:text-[--primary-orange]"
                           >
-                            Drive with trubooker
+                            {pathname === "/driver"
+                              ? "Ride with trubooker"
+                              : "Drive with trubooker"}
                           </Button>
 
                           <Button

@@ -7,7 +7,7 @@ import IPhone from "@/publicAppStore.png";
 const GetStarted = () => {
   return (
     <div className="text-center mt-10">
-      <div className="w-full bg-[#FD8C00] font-semibold text-xl lg:text-[48px] leading-[70px] text-white text-center py-5 lg:py-32 rounded">
+      <div className="w-full bg-[#FD8C00] font-semibold text-xl lg:text-[48px] leading-10 lg:leading-[70px] text-white text-center py-5 lg:py-20 rounded">
         <p className="">
           It&apos;s easy to get <br /> started. Start Now!
         </p>

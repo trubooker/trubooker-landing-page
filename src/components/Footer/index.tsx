@@ -13,7 +13,7 @@ const Footer = () => {
       </div>
       <div className="flex flex-col lg:flex-row lg:justify-between items-center border-[#7C8DB5] border-t-2 py-3">
         <div className="lg:ms-20 text-white font-light ">
-          © 2024 AquaTrack. All Rights Reserved.
+          © 2024 TruBooker. All Rights Reserved.
         </div>
       </div>
     </div>
