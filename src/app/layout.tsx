@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Manrope } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "TruBooker",
   description: "",
 };
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["200", "300", "400"],
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -12,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className=" ">{children}</body>
+    <html lang="en" suppressHydrationWarning={true}>
+      <body className={manrope.className}>{children}</body>
     </html>
   );
 }

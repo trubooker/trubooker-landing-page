@@ -26,13 +26,13 @@ const MobileNavbar = () => {
           src={Logo}
           width="60"
           alt="Logo"
-          className="lg:hidden flex w-32 h-14"
+          className="lg:hidden flex w-32 h-10"
         />
         <Image
           src={Logo}
           width="100"
           alt="Logo"
-          className="lg:flex hidden w-64 h-16"
+          className="lg:flex hidden w-52 h-16"
         />
         <div className="lg:flex gap-x-5 items-center hidden">
           {NavLinks.map((link: any, index: number) => (

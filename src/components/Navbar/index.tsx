@@ -3,7 +3,7 @@ import MobileNavbar from "./Header";
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-50 flex items-center gap-4 px-4 lg:px-6">
+    <header className="z-50 flex items-center gap-4 px-5 lg:px-20">
       <MobileNavbar />
     </header>
   );
