@@ -9,12 +9,12 @@ const HowItWorks = () => {
       <div className="lg:mb-20 mb-10">
         <div className="grid grid-rows-1 h-full items-end lg:grid-cols-2 mx-5 lg:mx-32 gap-8">
           <div>
-            <div className="flex text-left flex-col justify-center my-auto h-auto w-full py-10">
-              <header className="text-left lg:text-center font-bold w-[80%] text-2xl lg:text-4xl">
+            <div className="flex text-left ms-5 flex-col justify-center my-auto h-auto w-full py-10">
+              <header className="text-left font-bold w-[80%] text-2xl lg:text-4xl">
                 How Trubooker Drivers app works
               </header>
               <div className="grid grid-row-3 mt-10">
-                <div className="grid grid-cols-1 lg:ms-5 gap-12">
+                <div className="grid grid-cols-1 gap-12">
                   <div className="text-left my-2 flex">
                     <Image
                       className="text-left mb-6"

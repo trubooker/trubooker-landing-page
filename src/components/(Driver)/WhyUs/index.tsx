@@ -12,7 +12,7 @@ const WhyUs = () => {
         <div>
           <div className="w-full md:mx-auto">
             <div className="h-full flex flex-col justify-around sm:items-start items-center text-left lg:text-center sm:ms-6 mx-2">
-              <div className="sm:items-start items-center text-left mb-5 ms-3">
+              <div className="sm:items-start items-center text-left mb-5 ms-5">
                 <h3 className="font-semibold text-2xl lg:text-4xl mb-5">
                   Why Drive with Us?
                 </h3>

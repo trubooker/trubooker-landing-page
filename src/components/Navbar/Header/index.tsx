@@ -21,7 +21,7 @@ const MobileNavbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   return (
-    <div className="flex items-center my-5 w-full">
+    <div className="flex items-center my-2 lg:my-5 w-full">
       <div className="flex justify-between items-center w-full">
         <Image
           src={pathname === "/driver" ? LogoDriver : Logo}
