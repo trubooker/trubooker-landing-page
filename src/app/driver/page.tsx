@@ -3,6 +3,7 @@ import FloatingAnnouncement from "@/components/(Driver)/FloatingAnnouncement";
 import Hero from "@/components/(Driver)/Hero";
 import HowItWorks from "@/components/(Driver)/HowItWorks";
 import WhyUs from "@/components/(Driver)/WhyUs";
+import ScrollAnimation from "@/components/Assets/FramerMotion/animate";
 import Footer from "@/components/Footer";
 import GetStarted from "@/components/GetStarted";
 import Navbar from "@/components/Navbar";
@@ -13,10 +14,18 @@ const Driver = () => {
     <div>
       <FloatingAnnouncement />
       <Navbar />
-      <Hero />
-      <WhyUs />
-      <HowItWorks />
-      <Accounts />
+      <ScrollAnimation>
+        <Hero />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <WhyUs />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <HowItWorks />
+      </ScrollAnimation>
+      <ScrollAnimation>
+        <Accounts />
+      </ScrollAnimation>
       <GetStarted />
       <Footer />
     </div>

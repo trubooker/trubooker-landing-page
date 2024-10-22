@@ -8,10 +8,10 @@ import ButtonComponent from "@/components/Assets/MyButton";
 const WhyUs = () => {
   return (
     <div>
-      <div className="grid grid-rows-1 lg:grid-cols-3 gap-8 mx-5 lg:mx-32 mb-16">
+      <div className="grid grid-rows-1 lg:grid-cols-3 gap-8 mx-5 lg:mx-32 mb-10">
         <div>
           <div className="w-full md:mx-auto">
-            <div className="h-full flex flex-col justify-around sm:items-start items-center sm:text-left text-center sm:ms-6 mx-2">
+            <div className="h-full flex flex-col justify-around sm:items-start items-center text-left lg:text-center sm:ms-6 mx-2">
               <div className="sm:items-start items-center text-left mb-5 ms-3">
                 <h3 className="font-semibold text-2xl lg:text-4xl mb-5">
                   Why Drive with Us?
@@ -50,11 +50,11 @@ const WhyUs = () => {
               width={50}
               height={50}
             />
-            <h4 className="font-bold text-sm text-[--primary] text-left">
+            <h4 className="font-bold text-base text-[--primary] text-left">
               Ride at your convenience{" "}
             </h4>
           </div>
-          <p className="text-left mt-5 sm:text-sm text-xs">
+          <p className="text-left mt-3 lg:mt-5 text-base ms-5 lg:ms-0">
             Ride with ease and comfort whenever you need it.
           </p>
         </div>
@@ -67,11 +67,11 @@ const WhyUs = () => {
               width={50}
               height={50}
             />
-            <h4 className="font-bold text-sm text-[--primary] text-left">
+            <h4 className="font-bold text-base text-[--primary] text-left">
               Earn after every ride{" "}
             </h4>
           </div>
-          <p className="text-left mt-5 sm:text-sm text-xs">
+          <p className="text-left mt-3 lg:mt-5 text-base ms-5 lg:ms-0">
             Turn every trip into earnings - your ride, your reward.
           </p>
         </div>

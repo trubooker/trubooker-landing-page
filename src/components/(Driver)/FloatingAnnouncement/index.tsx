@@ -6,7 +6,7 @@ const FloatingAnnouncement = () => {
     <div>
       {" "}
       <div className="text-center">
-        <div className="w-full bg-[--primary] font-semibold text-base flex justify-around  text-white text-center">
+        <div className="w-full bg-[--primary] font-semibold text-sm lg:text-base flex flex-col lg:flex-row py-2 lg:py-0 justify-around text-white text-center">
           <p className="my-auto">
             Join our waiting list to earn as a driver when we launch
           </p>

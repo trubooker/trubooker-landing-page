@@ -19,7 +19,7 @@ const FAQ = () => {
         {IFAQ.map((item: any, index: number) => (
           <div key={index} className="rounded-2xl w-full">
             <div>
-              <h1 className="font-bold lg:text-base text-sm mb-2">
+              <h1 className="font-bold lg:text-lg text-base mb-2">
                 {item.header}
               </h1>
               <p className="font-light lg:text-base text-sm ">{item.content}</p>
