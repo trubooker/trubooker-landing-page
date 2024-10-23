@@ -45,11 +45,11 @@ const Hero = () => {
           </Link>
         </div>
       </div>{" "}
-      <div className="lg:w-full lg:ms-auto mx-auto lg:mx-0 mt-10 ps-10 w-full lg:mt-0">
-        <div className="h-[290px] lg:h-[500px] -z-10 mx-auto w-[299px] lg:w-[499px] flex">
+      <div className="lg:w-full lg:ms-auto mx-auto lg:mx-0 mt-10 sm:ps-10 w-full lg:mt-0">
+        <div className="h-[240px] sm:h-[290px] lg:h-[500px] -z-10 mx-auto w-[150px] sm:w-[299px] lg:w-[499px] flex">
           <Image src={Phone1} alt="" className="w-[199px]  lg:w-auto" />
           <Image
-            className="h-[290px] lg:h-[500px] right-10 lg:right-16 relative"
+            className="h-[250px] sm:h-[290px] lg:h-[500px] right-10 lg:right-16 relative"
             src={Phone2}
             alt=""
           />

@@ -56,8 +56,8 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          <div className="lg:w-full pic lg:ms-auto mx-auto z-20 lg:mx-0 ps-20 lg:ps-0 w-full lg:mt-0">
-            <div className=" h-[290px] lg:h-[700px] -z-10 mx-auto w-[299px] lg:w-[499px] flex">
+          <div className="lg:w-full pic lg:ms-auto mx-auto z-20 lg:mx-0 sm:ps-20 lg:ps-0 w-full lg:mt-0">
+            <div className="h-[240px] sm:h-[290px] lg:h-[700px] -z-10 mx-auto w-[150px] sm:w-[299px] lg:w-[499px] flex">
               <Image src={Phone1} alt="" className="w-[199px]  lg:w-auto" />
               <Image
                 className="h-[290px] lg:h-[650px] right-10 lg:right-16 top-10 relative"

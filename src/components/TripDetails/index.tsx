@@ -11,7 +11,7 @@ const TripDetails = () => {
           <h1 className="lg:font-bold font-normal xl:text-[48px] leading-[30px] lg:leading-[50px] text-[25px] text-black md:w-full w-[70%]">
             Know Before You Go - Trip Details at Your Fingertips
           </h1>
-          <h1 className="text-black lg:text-lg mt-10 text-sm  font-normal xl:w-[600px] w-[80%] my-5">
+          <h1 className="text-black lg:text-lg mt-10 text-sm  font-normal xl:w-[500px] w-[80%] my-5">
             Trubooker gives you full transparency with detailed trip information
             before you book. View all the essentials—like departure times, route
             stops, travel duration, and amenities—so you can make an informed

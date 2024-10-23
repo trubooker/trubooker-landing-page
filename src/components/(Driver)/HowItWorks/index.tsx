@@ -23,7 +23,7 @@ const HowItWorks = () => {
                       width={25}
                       height={25}
                     />
-                    <div className="flex flex-col ms-5">
+                    <div className="flex flex-col ms-5 w-[80%]">
                       <h4 className="font-semibold text-left text-base lg:h-0 lg:text-lg">
                         Sign up & Verify
                       </h4>
@@ -41,7 +41,7 @@ const HowItWorks = () => {
                       width={25}
                       height={25}
                     />
-                    <div className="flex flex-col ms-5">
+                    <div className="flex flex-col ms-5 w-[80%]">
                       <h4 className="font-semibold text-left text-base lg:h-0 lg:text-lg">
                         Schedule a trip
                       </h4>
@@ -59,7 +59,7 @@ const HowItWorks = () => {
                       width={25}
                       height={25}
                     />
-                    <div className="flex flex-col ms-5">
+                    <div className="flex flex-col ms-5 w-[80%]">
                       <h4 className="font-semibold text-left text-base lg:h-0 lg:text-lg">
                         Check-in Passengers
                       </h4>
@@ -77,7 +77,7 @@ const HowItWorks = () => {
                       width={25}
                       height={25}
                     />
-                    <div className="flex flex-col ms-5">
+                    <div className="flex flex-col ms-5 w-[80%]">
                       <h4 className="font-semibold text-left text-base lg:h-0 lg:text-lg">
                         Drive to destination{" "}
                       </h4>
@@ -95,7 +95,7 @@ const HowItWorks = () => {
                       width={25}
                       height={25}
                     />
-                    <div className="flex flex-col ms-5">
+                    <div className="flex flex-col ms-5 w-[80%]">
                       <h4 className="font-semibold text-left text-base lg:h-0 lg:text-lg">
                         Get paid{" "}
                       </h4>
