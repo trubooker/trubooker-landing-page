@@ -4,7 +4,7 @@ import ButtonComponent from "../Assets/MyButton";
 
 const FAQ = () => {
   return (
-    <div className="my-14 lg:my-20  mx-5 lg:mx-32">
+    <div id="FAQ" className="py-14 lg:py-20  mx-5 lg:mx-32">
       <h3 className="flex flex-col mb-3 mt-5">
         <span className="font-extrabold text-[--primary] text-3xl mb-2">
           FAQ

@@ -1,5 +1,3 @@
-import { title } from "process";
-
 export const NavLinks = [
   {
     title: "About",
@@ -11,7 +9,7 @@ export const NavLinks = [
   },
   {
     title: "FAQ",
-    path: "",
+    path: "/#FAQ",
   },
 ];
 
