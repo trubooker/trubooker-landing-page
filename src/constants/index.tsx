@@ -94,7 +94,7 @@ export const FooterLinks = [
       },
       {
         title: "Support",
-        path: "",
+        path: "/driver/support",
       },
     ],
   },

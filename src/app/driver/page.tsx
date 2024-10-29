@@ -27,6 +27,7 @@ const Driver = () => {
         <Accounts />
       </ScrollAnimation>
       <GetStarted />
+      <FloatingAnnouncement classname="bg-[#3A39CB]" />
       <Footer />
     </div>
   );
