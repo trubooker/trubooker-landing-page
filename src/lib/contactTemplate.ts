@@ -25,7 +25,7 @@ export const contactTemplate = `
       display: grid;
       grid-template-rows: 1fr;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 5px;
     }
 
 
@@ -63,14 +63,13 @@ export const contactTemplate = `
 <body>
   <div>
     <div class="">
-      <div class="grid-container text-xs text-base-lg">
+      <div class="grid-container text-base-lg">
         <p class="flex-item">
-          <img src={{nameLogo}} alt="" class="icon-primary" />
           Name: {{firstName}} {{lastName}}
         </p>
         <p class="flex-item">
-          <img src={{emailLogo}} alt="" class="icon-primary" />
-          Email: {{email}}
+          <div>Email<div>
+          {{email}}
         </p>
       </div>
     </div>

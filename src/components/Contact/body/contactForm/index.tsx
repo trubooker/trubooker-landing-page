@@ -46,12 +46,11 @@ const ContactForm = () => {
     try {
       await Send({ ...values });
 
-      alert("Email sent successfully!");
       setIsLoading(false);
+      console.log("Email sent successfully!");
     } catch (error) {
-      console.log("Failed to send email:", error);
-      alert("Failed to send email");
       setIsLoading(false);
+      console.log("Failed to send email:", error);
     }
   };
 

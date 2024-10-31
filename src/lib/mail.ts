@@ -1,8 +1,6 @@
 import nodemailer from "nodemailer";
 import * as handlebars from "handlebars";
 import { contactTemplate } from "./contactTemplate";
-import nameLogo from "@/publicHowItWorks.svg";
-import emailLogo from "@/publicHowItWorks.svg";
 
 interface FormData {
   firstName: string;
@@ -28,9 +26,7 @@ export async function sendMail({
   const { SMTP_EMAIL, SMTP_PASSWORD } = process.env;
 
   const transport = nodemailer.createTransport({
-    // service: "gmail",
-    host: process.env.SMTP_HOST,
-    port: parseInt(process.env.SMTP_PORT || "587", 10),
+    service: "gmail",
     auth: {
       user: SMTP_EMAIL,
       pass: SMTP_PASSWORD,
@@ -41,7 +37,7 @@ export async function sendMail({
     const testResult = await transport.verify();
     console.log(testResult);
   } catch (error) {
-    console.error(error);
+    console.log(error);
     return;
   }
 
@@ -71,8 +67,6 @@ export function compileTemplate({
     lastName,
     message,
     email,
-    nameLogo,
-    emailLogo,
   });
   return httpBody;
 }
