@@ -22,6 +22,10 @@ const ContactForm = () => {
   const contactFormSchema = z.object({
     firstName: z.string().min(1, { message: "First name is required" }),
     lastName: z.string().min(1, { message: "Last name is required" }),
+    phone: z
+      .string()
+      .min(1, { message: "Phone number is required" })
+      .max(11, { message: "Phone number is too long" }),
     email: z
       .string()
       .email({ message: "Email is invalid" })
@@ -44,13 +48,11 @@ const ContactForm = () => {
   const onSubmit = async (values: z.infer<typeof contactFormSchema>) => {
     setIsLoading(true);
     try {
-      await Send({ ...values });
+      // await Send({ ...values });
 
       setIsLoading(false);
-      console.log("Email sent successfully!");
     } catch (error) {
       setIsLoading(false);
-      console.log("Failed to send email:", error);
     }
   };
 
@@ -87,20 +89,34 @@ const ContactForm = () => {
                 )}
               />
             </div>
-            {/* <div className="grid grid-rows-none space-y-8 xl:space-y-0 gap-x-2 xl:grid-cols-2 xl:justify-between w-full"></div> */}
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email</FormLabel>
-                  <FormControl>
-                    <Input className="h-10" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            <div className="grid grid-rows-none space-y-8 xl:space-y-0 gap-x-2 xl:grid-cols-2 xl:justify-between w-full">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input className="h-10" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Phone Number</FormLabel>
+                    <FormControl>
+                      <Input className="h-10" type="number" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
             <FormField
               control={form.control}
               name="subject"

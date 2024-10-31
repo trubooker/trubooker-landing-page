@@ -22,14 +22,14 @@ const ContactDetails = () => {
                 <FaPhoneAlt className="w-4 h-4" />
                 <p className="text-xs md:text-base">
                   {" "}
-                  <Link href={"tel:+234-902-000-0001"}>+234-902-000-0001</Link>
+                  <Link href={"tel:09121556560"}>+(234)-912-155-6560</Link>
                 </p>
               </li>
               <li className="flex gap-x-2 my-8 mt-5 mx-auto justify-start items-center">
                 <MdEmail className="w-4 h-4" />
                 <p className="text-xs md:text-base">
-                  <Link href={"mailto:trubooker@gmail.com"}>
-                    trubooker@gmail.com
+                  <Link href={"mailto:trubookerofficial@trubooker.com"}>
+                    trubookerofficial@trubooker.com
                   </Link>
                 </p>
               </li>
