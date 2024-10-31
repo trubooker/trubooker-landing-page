@@ -1,11 +1,11 @@
 export const NavLinks = [
   {
-    title: "About",
-    path: "",
+    title: "Feature",
+    path: "/driver/#why",
   },
   {
-    title: "Features",
-    path: "",
+    title: "Contact",
+    path: "/contact",
   },
   {
     title: "FAQ",
@@ -88,7 +88,7 @@ export const FooterLinks = [
       },
       {
         title: "FAQs",
-        path: "",
+        path: "/#FAQ",
       },
       {
         title: "Support",
@@ -103,7 +103,7 @@ export const FooterLinks = [
     links: [
       {
         title: "FAQs",
-        path: "",
+        path: "/#FAQ",
       },
       {
         title: "Visit Help Centre",
@@ -111,7 +111,7 @@ export const FooterLinks = [
       },
       {
         title: "Contact Us",
-        path: "",
+        path: "/contact",
       },
     ],
   },

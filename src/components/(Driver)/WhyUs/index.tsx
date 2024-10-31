@@ -7,8 +7,8 @@ import ButtonComponent from "@/components/Assets/MyButton";
 
 const WhyUs = () => {
   return (
-    <div>
-      <div className="grid grid-rows-1 lg:grid-cols-3 gap-8 mx-5 lg:mx-32 mb-10">
+    <div id={"why"}>
+      <div className="grid grid-rows-1 lg:grid-cols-3 gap-8 mx-5 lg:mx-32 py-10">
         <div>
           <div className="w-full md:mx-auto">
             <div className="h-full flex flex-col justify-around sm:items-start items-center text-left lg:text-center sm:ms-6 mx-2">
