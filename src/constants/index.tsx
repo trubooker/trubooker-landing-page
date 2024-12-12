@@ -91,8 +91,8 @@ export const FooterLinks = [
         path: "/#FAQ",
       },
       {
-        title: "Support",
-        path: "/driver/support",
+        title: "Privay Policy",
+        path: "/driver/policy",
       },
     ],
   },

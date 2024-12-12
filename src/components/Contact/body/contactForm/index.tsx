@@ -16,20 +16,24 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Send from "./Mail";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [isLoading, setLoading] = useState(false);
   const contactFormSchema = z.object({
     firstName: z.string().min(1, { message: "First name is required" }),
     lastName: z.string().min(1, { message: "Last name is required" }),
-    phone: z
-      .string()
-      .min(1, { message: "Phone number is required" })
-      .max(11, { message: "Phone number is too long" }),
     email: z
       .string()
       .email({ message: "Email is invalid" })
       .min(1, { message: "Email is required" }),
+    phoneNumber: z
+      .string()
+      .min(1, { message: "Required Field" })
+      .min(10, { message: "Number must be atleast 10 digits" })
+      .max(20, { message: "Number not more than 20 digits" }),
     message: z.string().min(10, { message: "Message is required" }),
     subject: z.string().min(10, { message: "Message is required" }),
   });
@@ -46,13 +50,26 @@ const ContactForm = () => {
   });
 
   const onSubmit = async (values: z.infer<typeof contactFormSchema>) => {
-    setIsLoading(true);
     try {
-      // await Send({ ...values });
+      setLoading(true);
 
-      setIsLoading(false);
-    } catch (error) {
-      setIsLoading(false);
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/contact-support/create`,
+
+        {
+          method: "POST",
+          body: JSON.stringify(values),
+        }
+      );
+
+      const resdata = await res.json();
+      if (resdata?.status == "success") {
+        toast.success(`Sent Successfully!! ✅`);
+        setLoading(false);
+      }
+    } catch (error: any) {
+      toast.error("Error occured! Try later");
+      setLoading(false);
     }
   };
 
@@ -105,7 +122,7 @@ const ContactForm = () => {
               />
               <FormField
                 control={form.control}
-                name="phone"
+                name="phoneNumber"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Phone Number</FormLabel>
