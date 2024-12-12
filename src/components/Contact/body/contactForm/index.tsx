@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Send from "./Mail";
 import { useState } from "react";
+import axios from "axios";
 import toast from "react-hot-toast";
 
 const ContactForm = () => {
@@ -23,8 +24,8 @@ const ContactForm = () => {
   const [emailError, setEmailError] = useState("");
   const [isLoading, setLoading] = useState(false);
   const contactFormSchema = z.object({
-    firstName: z.string().min(1, { message: "First name is required" }),
-    lastName: z.string().min(1, { message: "Last name is required" }),
+    first_name: z.string().min(1, { message: "First name is required" }),
+    last_name: z.string().min(1, { message: "Last name is required" }),
     email: z
       .string()
       .email({ message: "Email is invalid" })
@@ -41,8 +42,8 @@ const ContactForm = () => {
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      first_name: "",
+      last_name: "",
       email: "",
       message: "",
       subject: "",
@@ -53,17 +54,12 @@ const ContactForm = () => {
     try {
       setLoading(true);
 
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/contact-support/create`,
-
-        {
-          method: "POST",
-          body: JSON.stringify(values),
-        }
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/contact-support`,
+        values
       );
 
-      const resdata = await res.json();
-      if (resdata?.status == "success") {
+      if (response.status === 200) {
         toast.success(`Sent Successfully!! ✅`);
         setLoading(false);
       }
@@ -81,7 +77,7 @@ const ContactForm = () => {
             <div className="grid grid-rows-none space-y-8 xl:space-y-0 gap-x-2 xl:grid-cols-2 xl:justify-between w-full">
               <FormField
                 control={form.control}
-                name="firstName"
+                name="first_name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>First Name</FormLabel>
@@ -94,7 +90,7 @@ const ContactForm = () => {
               />
               <FormField
                 control={form.control}
-                name="lastName"
+                name="last_name"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Last Name</FormLabel>

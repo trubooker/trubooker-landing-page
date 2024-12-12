@@ -57,7 +57,7 @@ const MobileNavbar = () => {
             variant={"outline"}
             className="bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:text-white rounded-full p-5 my-[12px]"
           >
-            Login/Signup as an agent
+            Login/Signup as a connector
           </Button>
         </div>
         <div className="flex items-center overflow-y-auto gap-x-5 lg:hidden">
@@ -124,7 +124,7 @@ const MobileNavbar = () => {
                             variant={"outline"}
                             className="bg-[--primary] hover:bg-[--primary-btn] text-white hover:text-white rounded-lg p-5 my-[12px]"
                           >
-                            Login/Signup as an agent
+                            Login/Signup as an connector
                           </Button>
                         </>
                       </SheetClose>
