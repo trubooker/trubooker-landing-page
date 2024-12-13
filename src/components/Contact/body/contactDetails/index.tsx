@@ -44,8 +44,8 @@ const ContactDetails = () => {
         </div>
 
         <div className="flex justify-between w-full mt-auto">
-          <div className="flex justify-between mb-2 mt-auto ms-5">
-            <SocialLinks classname={"flex"} height={5} width={5} />
+          <div className="flex justify-between items-center mb-2 mt-auto ms-5">
+            Follow us: <SocialLinks classname={"flex"} height={5} width={5} />
           </div>
           {/* <div className="flex sm:hidden justify-between mb-2 mt-auto ms-5">
             <SocialLinks classname={"flex"} height={3} width={3} />

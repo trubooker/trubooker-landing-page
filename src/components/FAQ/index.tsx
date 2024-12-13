@@ -4,7 +4,7 @@ import ButtonComponent from "../Assets/MyButton";
 
 const FAQ = () => {
   return (
-    <div id="FAQ" className="py-14 lg:py-20  mx-5 lg:mx-32">
+    <div id="FAQ" className="py-5 lg:py-10  mx-5 lg:mx-32">
       <h3 className="flex flex-col mb-3 mt-5">
         <span className="font-extrabold text-[--primary] text-3xl mb-2">
           FAQ
@@ -38,7 +38,7 @@ const FAQ = () => {
           </p>
         </div>
         <div>
-          <ButtonComponent link={""} classname={""} content={"Get in touch"} />
+          <ButtonComponent link={"/contact"} classname={""} content={"Get in touch"} />
         </div>
       </div>
     </div>

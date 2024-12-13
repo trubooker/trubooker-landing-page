@@ -48,7 +48,7 @@ export const IFAQ = [
     id: 2,
     header: "How do I book a ride or transport service?",
     content:
-      "We select properties in the most profitable cities in Italy (Milan, Turin, Genoa, Bologna, and Rome), enhance them with small renovation works, and maximize the yield. If you want to learn more about our process, contact us",
+      "To book a ride or transport service on TruBooker, simply open the app, log in, and enter your destination. Select your preferred ride option, set the time and date for your trip, and confirm your booking details. ",
   },
   {
     id: 3,
@@ -81,17 +81,12 @@ export const FooterLinks = [
     header: "Company",
     panel: "1",
     links: [
-      { title: "About Us", path: "" },
       {
         title: "Features",
-        path: "",
+        path: "/driver/#why",
       },
       {
-        title: "FAQs",
-        path: "/#FAQ",
-      },
-      {
-        title: "Privay Policy",
+        title: "Privacy Policy",
         path: "/driver/policy",
       },
     ],
@@ -106,10 +101,6 @@ export const FooterLinks = [
         path: "/#FAQ",
       },
       {
-        title: "Visit Help Centre",
-        path: "",
-      },
-      {
         title: "Contact Us",
         path: "/contact",
       },
@@ -122,15 +113,7 @@ export const FooterLinks = [
     links: [
       {
         title: "Instagram",
-        path: "",
-      },
-      {
-        title: "Twitter",
-        path: "",
-      },
-      {
-        title: "Telegram",
-        path: "",
+        path: "https://www.instagram.com/officialtrubooker/profilecard/?igsh=MTVzNGcxN3ZsZ3Jjdg== ",
       },
     ],
   },

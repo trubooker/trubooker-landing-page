@@ -20,12 +20,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const ContactForm = () => {
-  const [phoneError, setPhoneError] = useState("");
-  const [emailError, setEmailError] = useState("");
   const [isLoading, setLoading] = useState(false);
   const contactFormSchema = z.object({
-    first_name: z.string().min(1, { message: "First name is required" }),
-    last_name: z.string().min(1, { message: "Last name is required" }),
+    firstName: z.string().min(1, { message: "First name is required" }),
+    lastName: z.string().min(1, { message: "Last name is required" }),
     email: z
       .string()
       .email({ message: "Email is invalid" })
@@ -42,8 +40,8 @@ const ContactForm = () => {
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      first_name: "",
-      last_name: "",
+      firstName: "",
+      lastName: "",
       email: "",
       message: "",
       subject: "",
@@ -59,7 +57,7 @@ const ContactForm = () => {
         values
       );
 
-      if (response.status === 200) {
+      if (response.status === 201) {
         toast.success(`Sent Successfully!! ✅`);
         setLoading(false);
       }
@@ -77,7 +75,7 @@ const ContactForm = () => {
             <div className="grid grid-rows-none space-y-8 xl:space-y-0 gap-x-2 xl:grid-cols-2 xl:justify-between w-full">
               <FormField
                 control={form.control}
-                name="first_name"
+                name="firstName"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>First Name</FormLabel>
@@ -90,7 +88,7 @@ const ContactForm = () => {
               />
               <FormField
                 control={form.control}
-                name="last_name"
+                name="lastName"
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Last Name</FormLabel>
