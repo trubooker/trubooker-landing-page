@@ -30,7 +30,7 @@ const ScrollAnimation = ({ children }: ScrollAnimationProps) => {
       animate={controls}
       variants={{
         hidden: { opacity: 0, y: 100 },
-        visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
       }}
     >
       {children}

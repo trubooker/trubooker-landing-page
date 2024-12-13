@@ -12,7 +12,7 @@ import React from "react";
 const Driver = () => {
   return (
     <div>
-      <FloatingAnnouncement />
+      <FloatingAnnouncement classname="bg-[--primary]" />
       <Navbar />
       <ScrollAnimation>
         <Hero />
@@ -27,6 +27,7 @@ const Driver = () => {
         <Accounts />
       </ScrollAnimation>
       <GetStarted />
+      <FloatingAnnouncement classname="bg-[#3A39CB]" />
       <Footer />
     </div>
   );
