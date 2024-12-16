@@ -20,9 +20,7 @@ const Driver = () => {
       <ScrollAnimation>
         <WhyUs />
       </ScrollAnimation>
-      <ScrollAnimation>
-        <HowItWorks />
-      </ScrollAnimation>
+      <HowItWorks />
       <ScrollAnimation>
         <Accounts />
       </ScrollAnimation>

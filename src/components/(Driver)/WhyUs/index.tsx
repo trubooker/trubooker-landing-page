@@ -7,7 +7,7 @@ import ButtonComponent from "@/components/Assets/MyButton";
 
 const WhyUs = () => {
   return (
-    <div id={"why"}>
+    <div>
       <div className="grid grid-rows-1 lg:grid-cols-3 gap-8 mx-5 lg:mx-32 py-10">
         <div>
           <div className="w-full md:mx-auto">

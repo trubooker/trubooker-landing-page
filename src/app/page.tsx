@@ -29,9 +29,7 @@ export default function Home() {
       <ScrollAnimation>
         <StayOnTrack />
       </ScrollAnimation>
-      <ScrollAnimation>
-        <FAQ />
-      </ScrollAnimation>
+      <FAQ />
       <GetStarted />
       <Footer />
     </div>

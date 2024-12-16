@@ -5,7 +5,7 @@ import BlueDot from "@/publicblueDot.svg";
 
 const HowItWorks = () => {
   return (
-    <div>
+    <div id={"why"}>
       <div className="lg:mb-20 mb-10">
         <div className="grid grid-rows-1 h-full items-end lg:grid-cols-2 mx-5 lg:mx-32 gap-8">
           <div>
