@@ -53,7 +53,9 @@ const MobileNavbar = () => {
               : "Drive with trubooker"}
           </Link>
           <Button
-            onClick={() => router.push("")}
+            onClick={() =>
+              router.push("https://connectors.trubooker.com/login")
+            }
             variant={"outline"}
             className="bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:text-white rounded-full p-5 my-[12px]"
           >

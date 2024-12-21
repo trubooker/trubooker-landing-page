@@ -3,8 +3,10 @@ import Image from "next/image";
 import { FooterLinks } from "@/constants";
 import Link from "next/link";
 import Logo from "@/publiclogoWhite.svg";
+import { usePathname } from "next/navigation";
 
 const FooterBody = () => {
+  const pathname = usePathname();
   return (
     <>
       <div className="mx-5 sm:mx-14 text-sm sm:text-base grid text-white grid-cols-1 gap-x-8 gap-y-16 pb-10 py-10 px-10  xl:text-left lg:grid-cols-4 ">
@@ -27,7 +29,21 @@ const FooterBody = () => {
                   className="gap-x-2 mb-5 font-normal text-sm xl:text-base"
                   key={items.title}
                 >
-                  <Link href={items.path}>{items.title}</Link>
+                  <Link
+                    href={
+                      items.path !== "/del"
+                        ? items?.path
+                        : pathname.startsWith("/driver")
+                        ? "/driver/account-delete"
+                        : "/account-delete"
+                    }
+                  >
+                    {items.title !== "Delete Your Account"
+                      ? items?.title
+                      : pathname.startsWith("/driver")
+                      ? "Delete Your Driver Account"
+                      : "Delete a Passenger Account"}
+                  </Link>
                 </div>
               ))}
             </div>
