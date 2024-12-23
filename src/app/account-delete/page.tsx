@@ -8,10 +8,11 @@ import Logo from "@/public/logo.svg";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -22,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { format } from "date-fns";
 
 const FormSchema = z.object({
   email: z
@@ -31,13 +33,14 @@ const FormSchema = z.object({
   password: z
     .string()
     .min(8, { message: "Password must be 8 characters or more" }),
-  reason: z.string().min(10, { message: "Field is required" }),
+  reason: z
+    .string()
+    .min(10, { message: "Field is requires, minimum 10 characters" }),
 });
 
-const DriverAccountDelete = () => {
+const AccountDelete = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {},
@@ -46,18 +49,64 @@ const DriverAccountDelete = () => {
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  const [loading, setLoading] = useState(false); // Loading state for button
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [dobError, setDobError] = useState("");
+  const [reasonError, setReasonError] = useState("");
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
   const handleBack = () => {
     router.back();
   };
 
-  const onSubmit = async (data: z.infer<typeof FormSchema>) => {};
+  const onSubmit = async (data: z.infer<typeof FormSchema>) => {
+    setIsLoading(true);
+
+    if (selectedDate) {
+      const dateString = format(selectedDate, "dd/MM/yyyy");
+
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/delete-user-account?dob=${dateString}&email=${data.email}&password=${data.password}&reason=${data.reason}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      const resdata = await res.json();
+      if (resdata?.status === "success") {
+        console.log(resdata);
+        toast.success("Account deleted successfully");
+        setIsLoading(false);
+      }
+
+      if (resdata?.status === "failed") {
+        console.log(resdata);
+        setEmailError(resdata?.errors?.email?.map((err: any) => err));
+        setPasswordError(resdata?.errors?.password?.map((err: any) => err));
+        setDobError(resdata?.errors?.dob?.map((err: any) => err));
+        setReasonError(resdata?.errors?.reason?.map((err: any) => err));
+        if (resdata?.error?.message) {
+          toast.error(resdata?.error?.message);
+        }
+        setIsLoading(false);
+      }
+    } else {
+      setDobError("Date of birth is required");
+      setIsLoading(false);
+    }
+    // } catch (error: any) {
+    //   console.log(error);
+    //   setIsLoading(false);
+    //   setEmailError(error?.errors?.email.map((err: any) => err));
+    //   setPasswordError(error?.errors?.password.map((err: any) => err));
+    //   setDobError(error?.errors?.dob.map((err: any) => err));
+    //   setReasonError(error?.errors?.reason.map((err: any) => err));
+    // }
+  };
 
   return (
     <>
-      <section className="grid lg:flex lg:flex-row grid-cols-1 gap-y-5 h-full">
+      <section className="grid lg:flex lg:flex-row grid-cols-1 lg:h-screen gap-y-5 h-full">
         <button
           onClick={handleBack}
           className="text-gray-500 fixed top-7 left-8 z-20 bg-white h-10 w-10 rounded-full flex items-center justify-center shadow-lg"
@@ -68,156 +117,189 @@ const DriverAccountDelete = () => {
         <div className="relative w-full lg:h-screen h-40 overflow-hidden">
           {/* Background Images */}
           <div className="absolute inset-0 ">
-            <div className="fade2-background absolute inset-0 z-0"></div>
+            <div className="fade1-background absolute inset-0 z-0"></div>
           </div>
 
           {/* CTA Section */}
           <div className="absolute inset-0 z-10 flex items-center justify-center"></div>
         </div>
-
-        <div className="w-full lg:h-screen lg:flex lg:flex-col text-center justify-center overflow-y-auto ">
-          <div className="relative mb-8 mt-6 lg:w-10/12 w-11/12 mx-auto">
-            <div className="relative w-[150px] h-[30px] items-center flex justify-center text-center mt-5 mx-auto">
-              <Image src={Logo} alt="Logo" fill className="mx-auto w-full" />
+        <div className="w-full h-full lg:flex lg:flex-col text-center justify-center overflow-y-auto ">
+          <div className="w-full lg:w-10/12 lg:my-20 my-4 mx-auto">
+            <div className="flex items-center justify-center lg:mt-48 mb-5">
+              <Image src={Logo} width="100" alt="Logo" />
             </div>
-            <div className="text-center mx-auto">
-              <div className="w-full text-left bg-white p-6 rounded-lg shadow-md">
-                <h2 className="text-2xl font-bold text-gray-800 text-center">
-                  Do you want to delete your account?
-                </h2>
-                <p className="mt-4 text-sm text-gray-600">
-                  We&apos;re sorry to see you go. <br />
-                  Please note, once your account is deleted:
-                </p>
-                <ul className="mt-2 text-sm text-gray-600 text-justify list-disc list-inside space-y-1">
-                  <li>
-                    You will no longer be able to log in to the TruBooker Driver
-                    app.
-                  </li>
-                  <li>
-                    You will no longer receive updates via sms or newsletter on
-                    latest additions to TruBooker.
-                  </li>
-                  <li>Trip histories and aquired coupons will be erased</li>
 
-                  <li>
-                    You will no longer be able to log in to the TruBooker app.
-                  </li>
-                  <li>
-                    You will no longer receive updates on
-                    latest additions to TruBooker.
-                  </li>
-                  <li>Trip histories and aquired coupons will be erased</li>
-                </ul>
-                <p className="mt-4 text-sm text-gray-600">
-                  Please enter your account details:
-                </p>
+            <div className="relative w-11/12 mx-auto mb-10">
+              <div className="text-center">
+                <div className="w-full text-left bg-white p-6 rounded-lg shadow-md">
+                  <h2 className="text-2xl font-bold text-gray-800 text-center">
+                    Do you want to delete your account?
+                  </h2>
+                  <p className="mt-4 text-sm text-gray-600">
+                    We&apos;re sorry to see you go. <br />
+                    Please note, once your account is deleted:
+                  </p>
+                  <ul className="mt-2 text-sm text-gray-600 text-justify list-disc list-inside space-y-1">
+                    <li>
+                      You will no longer be able to log in to the TruBooker app.
+                    </li>
+                    <li>
+                      You will no longer receive gains on completed trips as a
+                      driver.
+                    </li>
+                    <li>
+                      Earned royalties from referred drivers will be permanently
+                      held back.
+                    </li>
+                    <li>
+                      You will no longer receive updates on latest additions to
+                      TruBooker.
+                    </li>
+                  </ul>
+                  <p className="mt-4 text-sm text-gray-600">
+                    Please enter your account details:
+                  </p>
+                </div>
               </div>
-            </div>
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)}>
-                <div className="flex transition-transform text-left duration-500 ease-in-out">
-                  <div className="w-full flex-shrink-0">
-                    <div>
-                      <div className="space-y-2 mt-4">
-                        <div className="grid gap-2">
-                          <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel>Account Email</FormLabel>
-                                <FormControl>
-                                  <Input
-                                    id="email"
-                                    type="email"
-                                    {...field}
-                                    className="py-6"
-                                  />
-                                </FormControl>
-                                {!emailError ? <FormMessage /> : ""}
-                                {emailError && (
-                                  <FormMessage>{emailError}</FormMessage>
-                                )}
-                              </FormItem>
-                            )}
-                          />
-                        </div>
-                        <div className="grid gap-2 text-gray-500">
-                          <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormLabel htmlFor="password">
-                                  Account Password
-                                </FormLabel>
-                                <FormControl>
-                                  <div className="relative">
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)}>
+                  <div className="flex transition-transform text-left duration-500 ease-in-out">
+                    <div className="w-full flex-shrink-0">
+                      <div>
+                        <div className="space-y-2 mt-4">
+                          <div className="grid gap-2 text-gray-500">
+                            <FormField
+                              control={form.control}
+                              name="email"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel>Account Email</FormLabel>
+                                  <FormControl>
                                     <Input
-                                      id="password"
-                                      type={showPassword ? "text" : "password"}
+                                      id="email"
+                                      type="email"
                                       {...field}
                                       className="py-6"
                                     />
+                                  </FormControl>
+                                  {!emailError ? <FormMessage /> : ""}
+                                  {emailError && (
+                                    <FormMessage>{emailError}</FormMessage>
+                                  )}
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          <div className="grid gap-2 text-gray-500">
+                            <FormField
+                              control={form.control}
+                              name="password"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel htmlFor="password">
+                                    Account Password
+                                  </FormLabel>
+                                  <FormControl>
+                                    <div className="relative">
+                                      <Input
+                                        id="password"
+                                        type={
+                                          showPassword ? "text" : "password"
+                                        }
+                                        {...field}
+                                        className="py-6"
+                                      />
 
-                                    <button
-                                      type="button"
-                                      onClick={togglePasswordVisibility}
-                                      className="text-xs font-semibold underline absolute right-4 top-4"
-                                    >
-                                      {showPassword ? (
-                                        <FaEyeSlash className="w-4 h-4" />
-                                      ) : (
-                                        <FaEye className="w-4 h-4" />
-                                      )}
-                                    </button>
-                                  </div>
-                                </FormControl>
-                                {!passwordError ? <FormMessage /> : ""}
-                                {passwordError && (
-                                  <FormMessage>{passwordError}</FormMessage>
-                                )}
-                              </FormItem>
-                            )}
-                          />
-                        </div>
+                                      <button
+                                        type="button"
+                                        onClick={togglePasswordVisibility}
+                                        className="text-xs font-semibold underline absolute right-4 top-4"
+                                      >
+                                        {showPassword ? (
+                                          <FaEyeSlash className="w-4 h-4" />
+                                        ) : (
+                                          <FaEye className="w-4 h-4" />
+                                        )}
+                                      </button>
+                                    </div>
+                                  </FormControl>
+                                  {!passwordError ? <FormMessage /> : ""}
+                                  {passwordError && (
+                                    <FormMessage>{passwordError}</FormMessage>
+                                  )}
+                                </FormItem>
+                              )}
+                            />
+                          </div>
 
-                        <div className="w-full">
-                          <FormLabel className="text-left text-sm text-gray-500 ">
-                            Reason
-                          </FormLabel>
-                          <FormField
-                            control={form.control}
-                            name="reason"
-                            render={({ field }) => (
-                              <FormItem>
-                                <FormControl>
-                                  <Textarea
-                                    className="resize-none min-h-[100px]"
-                                    {...field}
-                                  />
-                                </FormControl>
-                                <FormMessage />
-                              </FormItem>
+                          <div className="grid gap-2 text-gray-500">
+                            <FormItem>
+                              <FormLabel htmlFor="dateInput">
+                                Select a date:
+                              </FormLabel>
+
+                              <div className="border border-gray-200 p-2 rounded-lg flex flex-col">
+                                <DatePicker
+                                  selected={selectedDate}
+                                  onChange={(date: Date | null) =>
+                                    setSelectedDate(date)
+                                  }
+                                  dateFormat="yyyy-MM-dd"
+                                  placeholderText="YYYY-MM-DD"
+                                  id="dateInput"
+                                  className="date-picker-input border-none w-full outline-none h-6 pl-3 text-base py-4 placeholder:text-sm"
+                                />
+                              </div>
+                            </FormItem>
+                            {!dobError ? <FormMessage /> : ""}
+                            {dobError ? (
+                              <FormMessage className="mt-2 text-red-500">
+                                {dobError}
+                              </FormMessage>
+                            ) : (
+                              ""
                             )}
-                          />
+                          </div>
+
+                          <div className="w-full text-gray-500">
+                            <FormLabel className="text-left text-sm text-gray-500 ">
+                              Reason
+                            </FormLabel>
+                            <FormField
+                              control={form.control}
+                              name="reason"
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormControl>
+                                    <Textarea
+                                      className="resize-none min-h-[100px]"
+                                      {...field}
+                                    />
+                                  </FormControl>
+                                  {!reasonError ? <FormMessage /> : ""}
+                                  {reasonError && (
+                                    <FormMessage>{reasonError}</FormMessage>
+                                  )}
+                                </FormItem>
+                              )}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    <div className="flex space-x-3 mt-4">
-                      <Button
-                        type="submit"
-                        className="bg-[--primary-btn] hover:bg-[--primary] text-white w-full py-4 text-base font-semibold"
-                      >
-                        {isLoading ? "Submiting..." : "Submit"}
-                      </Button>
+                      <div className="flex space-x-3 mt-4">
+                        <Button
+                          type="submit"
+                          className="bg-[--primary-btn] hover:bg-[--primary] text-white w-full py-4 text-base font-semibold"
+                        >
+                          {isLoading ? "Submiting..." : "Submit"}
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </form>
-            </Form>
+                </form>
+              </Form>
+            </div>
           </div>
         </div>
       </section>
@@ -225,4 +307,4 @@ const DriverAccountDelete = () => {
   );
 };
 
-export default DriverAccountDelete;
+export default AccountDelete;
