@@ -24,6 +24,7 @@ import { Textarea } from "@/components/ui/textarea";
 import toast from "react-hot-toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { format } from "date-fns";
+import axios from "axios";
 
 const FormSchema = z.object({
   email: z
@@ -61,47 +62,40 @@ const AccountDelete = () => {
 
   const onSubmit = async (data: z.infer<typeof FormSchema>) => {
     setIsLoading(true);
+    try {
+      if (selectedDate) {
+        const dateString = format(selectedDate, "dd/MM/yyyy");
+        const formdata = {
+          reason: data?.reason,
+          email: data?.email,
+          password: data?.password,
+          dob: dateString,
+        };
+        const resdata = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/delete-user-account`,
+          formdata
+        );
 
-    if (selectedDate) {
-      const dateString = format(selectedDate, "dd/MM/yyyy");
-
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/delete-user-account?dob=${dateString}&email=${data.email}&password=${data.password}&reason=${data.reason}`,
-        {
-          method: "DELETE",
+        if (resdata?.status === 201) {
+          console.log(resdata);
+          toast.success("Account deleted successfully");
+          setIsLoading(false);
         }
-      );
-
-      const resdata = await res.json();
-      if (resdata?.status === "success") {
-        console.log(resdata);
-        toast.success("Account deleted successfully");
+      } else {
+        setDobError("Date of birth is required");
         setIsLoading(false);
       }
-
-      if (resdata?.status === "failed") {
-        console.log(resdata);
-        setEmailError(resdata?.errors?.email?.map((err: any) => err));
-        setPasswordError(resdata?.errors?.password?.map((err: any) => err));
-        setDobError(resdata?.errors?.dob?.map((err: any) => err));
-        setReasonError(resdata?.errors?.reason?.map((err: any) => err));
-        if (resdata?.error?.message) {
-          toast.error(resdata?.error?.message);
-        }
-        setIsLoading(false);
+    } catch (error: any) {
+      console.log(error);
+      setEmailError(error?.response?.data?.errors?.email?.map((err: any) => err));
+      setPasswordError(error?.response?.data?.errors?.password?.map((err: any) => err));
+      setDobError(error?.response?.data?.errors?.dob?.map((err: any) => err));
+      setReasonError(error?.response?.data?.errors?.reason?.map((err: any) => err));
+      if (error?.response?.data?.error?.message) {
+        toast.error(error?.response?.data?.error?.message);
       }
-    } else {
-      setDobError("Date of birth is required");
       setIsLoading(false);
     }
-    // } catch (error: any) {
-    //   console.log(error);
-    //   setIsLoading(false);
-    //   setEmailError(error?.errors?.email.map((err: any) => err));
-    //   setPasswordError(error?.errors?.password.map((err: any) => err));
-    //   setDobError(error?.errors?.dob.map((err: any) => err));
-    //   setReasonError(error?.errors?.reason.map((err: any) => err));
-    // }
   };
 
   return (
