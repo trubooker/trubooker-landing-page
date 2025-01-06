@@ -76,7 +76,7 @@ const AccountDelete = () => {
           formdata
         );
 
-        if (resdata?.status === 201) {
+        if (resdata?.status === 201 || resdata?.status === 200) {
           console.log(resdata);
           toast.success("Account deleted successfully");
           setIsLoading(false);
@@ -87,10 +87,16 @@ const AccountDelete = () => {
       }
     } catch (error: any) {
       console.log(error);
-      setEmailError(error?.response?.data?.errors?.email?.map((err: any) => err));
-      setPasswordError(error?.response?.data?.errors?.password?.map((err: any) => err));
+      setEmailError(
+        error?.response?.data?.errors?.email?.map((err: any) => err)
+      );
+      setPasswordError(
+        error?.response?.data?.errors?.password?.map((err: any) => err)
+      );
       setDobError(error?.response?.data?.errors?.dob?.map((err: any) => err));
-      setReasonError(error?.response?.data?.errors?.reason?.map((err: any) => err));
+      setReasonError(
+        error?.response?.data?.errors?.reason?.map((err: any) => err)
+      );
       if (error?.response?.data?.error?.message) {
         toast.error(error?.response?.data?.error?.message);
       }
