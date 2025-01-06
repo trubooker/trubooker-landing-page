@@ -29,21 +29,7 @@ const FooterBody = () => {
                   className="gap-x-2 mb-5 font-normal text-sm xl:text-base"
                   key={items.title}
                 >
-                  <Link
-                    href={
-                      items.path !== "/del"
-                        ? items?.path
-                        : pathname.startsWith("/driver")
-                        ? "/driver/account-delete"
-                        : "/account-delete"
-                    }
-                  >
-                    {items.title !== "Delete Your Account"
-                      ? items?.title
-                      : pathname.startsWith("/driver")
-                      ? "Delete Your Driver Account"
-                      : "Delete a Passenger Account"}
-                  </Link>
+                  <Link href={items.path}>{items.title}</Link>
                 </div>
               ))}
             </div>
