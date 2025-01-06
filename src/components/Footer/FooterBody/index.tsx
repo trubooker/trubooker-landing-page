@@ -3,8 +3,10 @@ import Image from "next/image";
 import { FooterLinks } from "@/constants";
 import Link from "next/link";
 import Logo from "@/publiclogoWhite.svg";
+import { usePathname } from "next/navigation";
 
 const FooterBody = () => {
+  const pathname = usePathname();
   return (
     <>
       <div className="mx-5 sm:mx-14 text-sm sm:text-base grid text-white grid-cols-1 gap-x-8 gap-y-16 pb-10 py-10 px-10  xl:text-left lg:grid-cols-4 ">

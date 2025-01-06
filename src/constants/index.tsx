@@ -104,6 +104,10 @@ export const FooterLinks = [
         title: "Contact Us",
         path: "/contact",
       },
+      {
+        title: "Delete Your Account",
+        path: "/account-delete",
+      },
     ],
   },
 

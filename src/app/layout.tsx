@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
   title: "TruBooker",
-  description: "",
+  icons: "/logo.svg",
 };
 
 const manrope = Manrope({
