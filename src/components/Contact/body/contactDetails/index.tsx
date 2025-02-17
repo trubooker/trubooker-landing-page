@@ -28,8 +28,8 @@ const ContactDetails = () => {
               <li className="flex gap-x-2 my-8 mt-5 mx-auto justify-start items-center">
                 <MdEmail className="w-4 h-4" />
                 <p className="text-xs md:text-base">
-                  <Link href={"mailto:trubookerofficial@trubooker.com"}>
-                    trubookerofficial@trubooker.com
+                  <Link href={"mailto:info@trubooker.com"}>
+                    info@trubooker.com
                   </Link>
                 </p>
               </li>
