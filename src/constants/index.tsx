@@ -116,7 +116,11 @@ export const FooterLinks = [
     panel: "3",
     links: [
       {
-        title: "Instagram",
+        title: "Email: info@trubooker.com",
+        path: "mailto:info@trubooker.com",
+      },
+      {
+        title: "Instagram: @officialtrubooker",
         path: "https://www.instagram.com/officialtrubooker/profilecard/?igsh=MTVzNGcxN3ZsZ3Jjdg== ",
       },
     ],
