@@ -40,9 +40,9 @@ export const Service = [
 export const IFAQ = [
   {
     id: 1,
-    header: "What services does your company offer?",
+    header: "How can I book a trip on TruBooker?",
     content:
-      "We offer a wide range of transport services including freight transport, passenger services, and logistics solutions tailored to meet the needs of both individuals and businesses.",
+      "You can book a trip through the TruBooker app by selecting your departure and destination points, choosing a vehicle, and completing the payment.",
   },
   {
     id: 2,
@@ -58,9 +58,47 @@ export const IFAQ = [
   },
   {
     id: 4,
-    header: "How can I track my shipment or ride?",
+    header: "How can I track or ride?",
     content:
-      'You can track your shipment or ride in real-time through our website or mobile app by entering your booking reference number in the "Track Shipment Ride" section.',
+      "You can track your ride in real-time through our  mobile app by entering your booking section.",
+  },
+  {
+    id: 5,
+    header: "Can I manage my bookings through the app?",
+    content:
+      "Yes, the driver section of the app allows you to view all passenger bookings and track trips live.",
+  },
+  {
+    id: 6,
+    header: "What payment methods is accepted?",
+    content:
+      "We accept all major credit and debit cards, as well as online payment options such as Card payment and bank transfers. Payment can be made securely through our website or app.",
+  },
+];
+export const IDriverFAQ = [
+  {
+    id: 1,
+    header: "Why is my document verification still pending?",
+    content:
+      "Document verification may take 24-48 hours. If it exceeds this time, please contact support.",
+  },
+  {
+    id: 2,
+    header: "What happens if my app isn't working properly?",
+    content:
+      "Try restarting the app or your phone. If the issue persists, contact support for help.",
+  },
+  {
+    id: 3,
+    header: "What safety measures do you have in place?",
+    content:
+      "We prioritize safety by regularly maintaining our vehicles, training our drivers, and adhering to all health and safety regulations. Additionally, all our vehicles are equipped with GPS tracking and emergency response systems.",
+  },
+  {
+    id: 4,
+    header: "How do I register as a driver on TruBooker?",
+    content:
+      "You can sign up through the TruBooker Driver App by providing your personal information, vehicle details, and required documentation for verification.",
   },
   {
     id: 5,

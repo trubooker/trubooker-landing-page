@@ -44,14 +44,17 @@ const MobileNavbar = () => {
               className="text-[#667085]"
             />
           ))}
-          <Link
-            className="hover:underline font-medium text-[--primary-orange]"
-            href={pathname === "/driver" ? "/" : "/driver"}
+          <Button
+            onClick={() =>
+              router.push(pathname === "/driver" ? "/" : "/driver")
+            }
+            variant={"outline"}
+            className="bg-[--primary-orange] hover:bg-[--primary-orange-btn] font-bold text-white hover:text-white rounded-full p-5 my-[12px]"
           >
             {pathname === "/driver"
               ? "Ride with trubooker"
               : "Drive with trubooker"}
-          </Link>
+          </Button>
           <Button
             onClick={() =>
               router.push("https://connectors.trubooker.com/login")
