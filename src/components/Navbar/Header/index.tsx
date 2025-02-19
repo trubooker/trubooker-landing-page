@@ -40,7 +40,13 @@ const MobileNavbar = () => {
             <NavbarRoutes
               key={index}
               content={link.title}
-              href={link.path}
+              href={
+                link.path === "/#FAQ"
+                  ? pathname === "/driver"
+                    ? "/driver#FAQ"
+                    : "/#FAQ"
+                  : link.path
+              }
               className="text-[#667085]"
             />
           ))}
