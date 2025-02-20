@@ -4,6 +4,7 @@ import Hero from "@/components/(Driver)/Hero";
 import HowItWorks from "@/components/(Driver)/HowItWorks";
 import WhyUs from "@/components/(Driver)/WhyUs";
 import ScrollAnimation from "@/components/Assets/FramerMotion/animate";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import GetStarted from "@/components/GetStarted";
 import Navbar from "@/components/Navbar";
@@ -24,6 +25,7 @@ const Driver = () => {
       <ScrollAnimation>
         <Accounts />
       </ScrollAnimation>
+      <FAQ />
       <GetStarted />
       <FloatingAnnouncement classname="bg-[#3A39CB]" />
       <Footer />

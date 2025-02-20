@@ -46,8 +46,8 @@ const HowItWorks = () => {
                         Schedule a trip
                       </h4>
                       <p className="text-left sm:text-base text-sm lg:mt-8">
-                        Choose your preferred driving times and accept bookings
-                        that fit your schedule.
+                        Create booking that fits your schedule in advance by
+                        setting the departure time, route, and available seats.
                       </p>
                     </div>
                   </div>
