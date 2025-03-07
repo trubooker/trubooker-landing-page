@@ -26,7 +26,9 @@ const Hero = () => {
         </h1>
         <div className="flex flex-col lg:flex-row items-center gap-x-3">
           <Link
-            href={""}
+            href={
+              "https://play.google.com/store/apps/details?id=com.trubooker.trubooker"
+            }
             className="w-[170px] py-4 bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:scale-105 duration-300 hover:text-white rounded-full p-5 my-[12px]"
           >
             <span className="flex items-center gap-x-3">
@@ -34,7 +36,7 @@ const Hero = () => {
               store
             </span>
           </Link>
-          <Link
+          {/* <Link
             href={""}
             className="w-[170px] py-4 bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:scale-105 duration-300 hover:text-white rounded-full p-5 my-[12px]"
           >
@@ -42,7 +44,7 @@ const Hero = () => {
               <Image src={IPhone} alt="" className="w-5 h-5  lg:w-auto" />{" "}
               <span> App Store</span>
             </span>
-          </Link>
+          </Link> */}
         </div>
       </div>{" "}
       <div className="lg:w-full lg:ms-auto mx-auto lg:mx-0 mt-10 sm:ps-10 w-full lg:mt-0">
