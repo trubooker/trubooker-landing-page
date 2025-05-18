@@ -26,7 +26,8 @@ const Hero = () => {
         </h1>
         <div className="flex flex-col lg:flex-row items-center gap-x-3">
           <Link
-            href={""}
+            href="https://play.google.com/store/apps/details?id=com.trubooker.trubooker&hl=en"
+            target="_blank"
             className="w-[170px] py-4 bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:scale-105 duration-300 hover:text-white rounded-full p-5 my-[12px]"
           >
             <span className="flex items-center gap-x-3">
@@ -35,7 +36,8 @@ const Hero = () => {
             </span>
           </Link>
           <Link
-            href={""}
+            href="https://apps.apple.com/ng/app/trubooker/id6743930941"
+            target="_blank"
             className="w-[170px] py-4 bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:scale-105 duration-300 hover:text-white rounded-full p-5 my-[12px]"
           >
             <span className="flex items-center gap-x-3">

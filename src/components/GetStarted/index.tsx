@@ -4,7 +4,13 @@ import React from "react";
 import Android from "@/publicplayStore.png";
 import IPhone from "@/publicAppStore.png";
 
-const GetStarted = () => {
+const GetStarted = ({
+  playstoreurl,
+  appstoreurl,
+}: {
+  playstoreurl: string;
+  appstoreurl: string;
+}) => {
   return (
     <div className="text-center mt-10">
       <div className="w-full bg-[#FD8C00] font-semibold text-xl lg:text-[48px] leading-10 lg:leading-[70px] text-white text-center py-5 lg:py-20 rounded">
@@ -14,7 +20,7 @@ const GetStarted = () => {
         <div className=" mx-auto w-full text-center">
           <div className="flex gap-x-3 justify-center">
             <ButtonComponent
-              link={""}
+              link={playstoreurl}
               classname={"rounded-md border-none"}
               content={
                 <span className="flex items-center gap-x-3">
@@ -24,7 +30,7 @@ const GetStarted = () => {
               }
             />
             <ButtonComponent
-              link={""}
+              link={appstoreurl}
               classname={"rounded-md border-none"}
               content={
                 <span className="flex items-center gap-x-3">
