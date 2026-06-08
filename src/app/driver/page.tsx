@@ -26,7 +26,10 @@ const Driver = () => {
         <Accounts />
       </ScrollAnimation>
       <FAQ />
-      <GetStarted />
+      <GetStarted
+        appstoreurl="https://apps.apple.com/ng/app/trubooker-drivers/id6743926575"
+        playstoreurl="https://play.google.com/store/apps/details?id=com.trubooker.drivers&hl=en"
+      />
       <FloatingAnnouncement classname="bg-[#3A39CB]" />
       <Footer />
     </div>

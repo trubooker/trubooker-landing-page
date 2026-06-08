@@ -30,7 +30,10 @@ export default function Home() {
         <StayOnTrack />
       </ScrollAnimation>
       <FAQ />
-      <GetStarted />
+      <GetStarted
+        appstoreurl="https://apps.apple.com/ng/app/trubooker/id6743930941"
+        playstoreurl="https://play.google.com/store/apps/details?id=com.trubooker.trubooker&hl=en"
+      />
       <Footer />
     </div>
   );

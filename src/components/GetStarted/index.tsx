@@ -9,6 +9,13 @@ import { usePathname } from "next/navigation";
 
 const GetStarted = () => {
   const path = usePathname();
+const GetStarted = ({
+  playstoreurl,
+  appstoreurl,
+}: {
+  playstoreurl: string;
+  appstoreurl: string;
+}) => {
   return (
     <div className="text-center mt-10">
       <div className="w-full bg-[#FD8C00] font-semibold text-xl lg:text-[48px] leading-10 lg:leading-[70px] text-white text-center py-5 lg:py-20 rounded">
@@ -23,6 +30,7 @@ const GetStarted = () => {
                   ? "https://play.google.com/store/apps/details?id=com.trubooker.drivers"
                   : "https://play.google.com/store/apps/details?id=com.trubooker.trubooker"
               } `}
+              link={playstoreurl}
               classname={"rounded-md border-none"}
               content={
                 <span className="flex items-center gap-x-3">
@@ -33,6 +41,8 @@ const GetStarted = () => {
             />
             {/* <ButtonComponent
               link={""}
+            <ButtonComponent
+              link={appstoreurl}
               classname={"rounded-md border-none"}
               content={
                 <span className="flex items-center gap-x-3">

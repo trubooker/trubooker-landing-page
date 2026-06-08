@@ -33,6 +33,8 @@ const Hero = () => {
               <div className="flex flex-col lg:flex-row items-center gap-x-3">
                 <Link
                   href={"https://play.google.com/store/apps/details?id=com.trubooker.drivers"}
+                  href="https://play.google.com/store/apps/details?id=com.trubooker.drivers&hl=en"
+                  target="_blank"
                   className="w-[170px] py-4 bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:scale-105 duration-300 hover:text-white rounded-full p-5 my-[12px]"
                 >
                   <span className="flex items-center gap-x-3">
@@ -44,8 +46,11 @@ const Hero = () => {
                     Play store
                   </span>
                 </Link>
-                {/* <Link
-                  href={""}
+                <Link
+                  href={
+                    "https://apps.apple.com/ng/app/trubooker-drivers/id6743926575"
+                  }
+                  target="_blank"
                   className="w-[170px] py-4 bg-[--primary] hover:bg-[--primary-btn] font-bold text-white hover:scale-105 duration-300 hover:text-white rounded-full p-5 my-[12px]"
                 >
                   <span className="flex items-center gap-x-3">
