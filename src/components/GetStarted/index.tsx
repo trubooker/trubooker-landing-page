@@ -1,14 +1,9 @@
-"use client";
-
 import ButtonComponent from "../Assets/MyButton";
 import Image from "next/image";
 import React from "react";
 import Android from "@/publicplayStore.png";
 import IPhone from "@/publicAppStore.png";
-import { usePathname } from "next/navigation";
 
-const GetStarted = () => {
-  const path = usePathname();
 const GetStarted = ({
   playstoreurl,
   appstoreurl,
@@ -25,11 +20,6 @@ const GetStarted = ({
         <div className=" mx-auto w-full text-center">
           <div className="flex gap-x-3 justify-center">
             <ButtonComponent
-              link={`${
-                path === "/driver"
-                  ? "https://play.google.com/store/apps/details?id=com.trubooker.drivers"
-                  : "https://play.google.com/store/apps/details?id=com.trubooker.trubooker"
-              } `}
               link={playstoreurl}
               classname={"rounded-md border-none"}
               content={
@@ -39,8 +29,6 @@ const GetStarted = ({
                 </span>
               }
             />
-            {/* <ButtonComponent
-              link={""}
             <ButtonComponent
               link={appstoreurl}
               classname={"rounded-md border-none"}
@@ -50,7 +38,7 @@ const GetStarted = ({
                   <span className="text-xs"> App Store</span>
                 </span>
               }
-            /> */}
+            />
           </div>
         </div>
       </div>

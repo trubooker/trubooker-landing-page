@@ -8,14 +8,6 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/blog/:path*",
-        destination: "https://blog.prizeless.ng/:path*",
-      },
-    ];
-  },
 };
 
 export default nextConfig;
