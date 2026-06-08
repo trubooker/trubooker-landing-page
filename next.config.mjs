@@ -12,7 +12,7 @@ const nextConfig = {
     return [
       {
         source: "/blog",
-        destination: "https://blog.prizeless.ng/:path*",
+        destination: "https://api.trubooker.com/qewordly",
       },
     ];
   },
