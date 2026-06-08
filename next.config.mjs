@@ -11,7 +11,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/blog/:path*",
+        source: "/blog",
         destination: "https://blog.prizeless.ng/:path*",
       },
     ];
