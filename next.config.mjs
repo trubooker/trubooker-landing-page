@@ -11,8 +11,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/blog/:path*",
-        destination: "https://blog.prizeless.ng/:path*",
+        source: "/blog",
+        destination: "https://api.trubooker.com/qewordly",
       },
     ];
   },
