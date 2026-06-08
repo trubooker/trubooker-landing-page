@@ -26,7 +26,9 @@ const WhyUs = () => {
               <span className="flex">
                 {" "}
                 <ButtonComponent
-                  link={""}
+                  link={
+                    "https://play.google.com/store/apps/details?id=com.trubooker.drivers"
+                  }
                   classname="lg:w-56 w-48 lg:h-14 h-12 bg-[--primary-orange] hover:bg-[--primary-orange-btn]"
                   content={"Get the App Now!"}
                 />
