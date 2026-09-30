@@ -12,8 +12,8 @@ const nextConfig = {
     return [
       {
         source: "/blog",
-        destination: "https://api.trubooker.com/qewordly",
-      },
+        destination: "https://blog.trubooker.com",
+      },{ "source": "/blog/:path*", "destination": "https://blog.trubooker.com/:path*" }
     ];
   },
 };
