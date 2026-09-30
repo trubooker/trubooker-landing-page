@@ -8,14 +8,18 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/blog",
-        destination: "https://blog.trubooker.com",
-      }
-    ];
-  },
+async rewrites() {
+  return [
+    {
+      source: "/blog",
+      destination: "https://blog.trubooker.com/",
+    },
+    {
+      source: "/blog/:path*",
+      destination: "https://blog.trubooker.com/:path*",
+    },
+  ];
+}
 };
 
 export default nextConfig;
