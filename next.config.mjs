@@ -13,7 +13,7 @@ const nextConfig = {
       {
         source: "/blog",
         destination: "https://blog.trubooker.com",
-      },{ "source": "/blog/:path*", "destination": "https://blog.trubooker.com/:path*" }
+      }
     ];
   },
 };
