@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Manrope } from "next/font/google";
 import { Toaster } from "react-hot-toast";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "TruBooker",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={manrope.className}>
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
