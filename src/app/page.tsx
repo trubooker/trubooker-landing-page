@@ -1,3 +1,4 @@
+import { AppPromo } from "@/components/AppPromo";
 import ScrollAnimation from "@/components/Assets/FramerMotion/animate";
 import Browse from "@/components/Browse";
 import FAQ from "@/components/FAQ";
@@ -14,6 +15,10 @@ export default function Home() {
   return (
     <div className="">
       <Navbar />
+       <AppPromo
+        href="https://play.google.com/store/apps/details?id=com.trubooker.trubooker"
+        label="Book your next trip faster on the TruBooker app."
+      />
       <ScrollAnimation>
         <Hero />
       </ScrollAnimation>
