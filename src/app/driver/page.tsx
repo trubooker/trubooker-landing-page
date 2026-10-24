@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Accounts from "@/components/(Driver)/Accounts";
 import FloatingAnnouncement from "@/components/(Driver)/FloatingAnnouncement";
 import Hero from "@/components/(Driver)/Hero";
@@ -9,6 +10,15 @@ import Footer from "@/components/Footer";
 import GetStarted from "@/components/GetStarted";
 import Navbar from "@/components/Navbar";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Drive with TruBooker Earn on Intercity & Rural Routes",
+  description:
+    "Set your own routes, departure times and seats. Get verified, check in passengers and withdraw earnings straight from the TruBooker Drivers app.",
+  alternates: { canonical: "/driver" },
+  itunes: { appId: "6743926575" },
+  openGraph: { url: "/driver", title: "Drive with TruBooker", images: ["/trub.png"] },
+};
 
 const Driver = () => {
   return (
