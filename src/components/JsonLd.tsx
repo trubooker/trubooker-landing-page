@@ -1,3 +1,5 @@
+import { faqs } from "@/data/faqs";
+
 export function HomeJsonLd() {
   const data = {
     "@context": "https://schema.org",
