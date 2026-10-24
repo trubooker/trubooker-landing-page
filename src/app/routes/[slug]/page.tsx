@@ -1,24 +1,24 @@
 import { notFound } from "next/navigation";
 import { routes } from "@/data/routes";
 
+type Props = { params: { slug: string } };
+
 export function generateStaticParams() {
   return routes.map((r) => ({ slug: r.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const r = routes.find((x) => x.slug === slug);
+export function generateMetadata({ params }: Props) {
+  const r = routes.find((x) => x.slug === params.slug);
   if (!r) return {};
   return {
-    title: `${r.from} to ${r.to} Bus  Book Tickets from ₦${r.fromPrice.toLocaleString()}`,
+    title: `${r.from} to ${r.to} Bus – Book Tickets from ₦${r.fromPrice.toLocaleString()}`,
     description: `Compare buses from ${r.from} to ${r.to}. See prices, pickup points and departure times, book your seat and track your trip live on TruBooker.`,
     alternates: { canonical: `/routes/${r.slug}` },
   };
 }
 
-export default async function RoutePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
-  const r = routes.find((x) => x.slug === slug);
+export default function RoutePage({ params }: Props) {
+  const r = routes.find((x) => x.slug === params.slug);
   if (!r) notFound();
 
   const breadcrumb = {
@@ -26,14 +26,16 @@ export default async function RoutePage({ params }: { params: Promise<{ slug: st
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.trubooker.com" },
-      { "@type": "ListItem", position: 2, name: "Routes", item: "https://www.trubooker.com/routes" },
-      { "@type": "ListItem", position: 3, name: `${r.from} to ${r.to}` },
+      { "@type": "ListItem", position: 2, name: `${r.from} to ${r.to}` },
     ],
   };
 
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
       <h1>{r.from} to {r.to} Bus Tickets</h1>
       <p>Travel time: about {r.duration}. Fares from ₦{r.fromPrice.toLocaleString()}.</p>
       <h2>Pickup points in {r.from}</h2>
