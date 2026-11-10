@@ -7,6 +7,10 @@ export const NavLinks = [
     title: "Contact",
     path: "/contact",
   },
+   {
+    title: "Blog",
+    path: "https://trubooker-blog-sable.vercel.app/",
+  },
   {
     title: "FAQ",
     path: "/#FAQ",
